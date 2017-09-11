@@ -1,5 +1,9 @@
 #Read text file
 d <- read.table("household_power_consumption.txt", sep = ';', header = TRUE, stringsAsFactors = FALSE)
+d$Global_active_power <- as.numeric(d$Global_active_power)
+d$Sub_metering_1 <- as.numeric(d$Sub_metering_1)
+d$Sub_metering_2 <- as.numeric(d$Sub_metering_2)
+d$Sub_metering_3 <- as.numeric(d$Sub_metering_3)
 
 #Create new field to combine date and time
 d$DT <- paste(as.Date(d$Date, "%d/%m/%Y"), d$Time)
